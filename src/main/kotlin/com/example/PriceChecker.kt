@@ -19,5 +19,4 @@ fun priceCall(): String? {
         .getJSONObject("USD")
         .getString("rate")
     return price
-
 }
