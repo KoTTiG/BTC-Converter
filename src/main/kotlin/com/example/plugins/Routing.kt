@@ -11,13 +11,40 @@ fun Application.configureRouting() {
 
     // Starting point for a Ktor app:
     routing {
-        get("/convert/usd") {
-            val value = call.parameters[VALUE]
-            call.respondText((value.toString().toDouble() * usdPriceCall()).toString())
-        }
-        get("/convert/btc") {
-            val value = call.parameters[VALUE]
-            call.respondText((value.toString().toDouble() * btcPriceCall()).toString())
-        }
+
+            get("/convert/usd") {
+                try {
+                    val value = call.parameters[VALUE]
+                    if(value == null){
+                        call.respondText("ERROR: No input value")
+                    }else{
+                        call.respondText((value.toString().toDouble() * usdPriceCall()).toString())
+                    }
+                } catch (e: NumberFormatException) {
+                    call.respondText("ERROR: input value is not a number")
+                }
+
+                catch (e: NullPointerException) {
+                    call.respondText("ERROR: Can't get the exchange rate")
+                }
+
+            }
+            get("/convert/btc") {
+                try {
+                    val value = call.parameters[VALUE]
+                    if(value == null){
+                        call.respondText("ERROR: No input value")
+                    }else{
+                        call.respondText((value.toString().toDouble() * btcPriceCall()).toString())
+                    }
+                } catch (e: NumberFormatException) {
+                    call.respondText("ERROR: input value is not a number")
+                }
+
+                catch (e: NullPointerException) {
+                    call.respondText("ERROR: Can't get the exchange rate")
+                }
+            }
+
     }
 }
