@@ -1,8 +1,3 @@
-# Converter Service
-[![Tests](https://github.com/KoTTiG/BTC-Converter/actions/workflows/gradle-tests.yml/badge.svg?branch=main)](https://github.com/KoTTiG/BTC-Converter/actions/workflows/gradle-tests.yml) )
-(Develop
-[![Tests](https://github.com/KoTTiG/BTC-Converter/actions/workflows/gradle-tests.yml/badge.svg?branch=develop)](https://github.com/KoTTiG/BTC-Converter/actions/workflows/gradle-tests.yml) )
-
 # BTC-Converter
 BTC to USD converter
 
